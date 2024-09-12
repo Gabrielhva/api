@@ -1,0 +1,26 @@
+###
+GET http://localhost:3000/disorder HTTP/1.1
+Content-Type: appllication/json
+
+
+###
+POST http://localhost:3000/disorder HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "autismo",
+    "cid": "10"
+}
+
+###
+PUT http://localhost:3000/disorder/ HTTP/1.1
+Content-Type: appllication/json
+
+{
+    "name": "depressao"
+}
+
+###
+DELETE http://localhost:3000/disorder/ HTTP/1.1
+Content-Type: appllication/json
+
