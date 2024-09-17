@@ -51,6 +51,14 @@ function create_admin(name,email,password){
     return admin
 }
 
+function read_admin(){
+    
+    create_admin,
+    read_admin,
+    update_admin,
+    delete_admin
+
+}
 
 
 function update_admin(id,name,email,password){
@@ -83,6 +91,14 @@ function delete_admin(id){
     return true
 }
 
+module.exports = {
+
+    create_admin,
+    read_admin,
+    update_admin,
+    delete_admin
+}
+
 app.post("/admin", (req, res) => {
 
     const {name,email,password} = req.body
@@ -90,7 +106,7 @@ app.post("/admin", (req, res) => {
     if(!name || !email || !password){
         return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
     }
-
+                //cadmin.
     const vadmin = create_admin(name,email,password)
     return res.status(400).json({ message: "Sucesso!", admin: vadmin})
 } )
