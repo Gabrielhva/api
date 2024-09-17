@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 app.use(express.json())
-const cdoctor = require ('./controllers/cdoctor')
-const cadmin = require ('./controllers/cadmin')
+const cdoctor = require ('./controllers/doctor')
+const cadmin = require ('./controllers/admin')
+
 
 app.post("/doctor",(req, res) => {
     const {name, crp, classificacao} = req.body
@@ -21,7 +22,9 @@ app.post("/doctor",(req, res) => {
 app.get("/doctor",(req, res) => {
     
     return res.status(200).json(
-        { message: 'Sucesso', lista: doctors}
+        { message: 'Sucesso', lista: cdoctor.read_doctor()
+
+        }
     )
 
 })
@@ -59,13 +62,13 @@ app.post("/admin", (req, res) => {
         return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
     }
                 //cadmin.
-    const vadmin = create_admin(name,email,password)
+    const vadmin = cadmin.create_admin(name,email,password)
     return res.status(400).json({ message: "Sucesso!", admin: vadmin})
 } )
 
 app.get("/admin", (req, res) => {
     return res.status(200).json({
-        message: 'sucesso',admin: admins
+        message: 'sucesso',admin: cadmin.create_admin()
     })
 })
 
@@ -74,7 +77,7 @@ app.put("/admin/:id", (req, res) => {
                     
     const {name,email,password} = req.body
 
-    let retorno = update_admin(id,name,email,password)
+    let retorno = cadmin.update_admin(id,name,email,password)
     return res.status(retorno.status).json(retorno.msg)
 
 })
@@ -82,7 +85,7 @@ app.put("/admin/:id", (req, res) => {
 app.delete("/admin/:id", (req, res) => {
 
     const id = parseInt(req.params.id)
-    if (delete_admin(id)) {
+    if (cadmin.delete_admin(id)) {
     return res.status(201).json("Você foi de base XD")
     }
     else{

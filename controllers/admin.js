@@ -23,10 +23,7 @@ function create_admin(name,email,password){
 
 function read_admin(){
     
-    create_admin,
-    read_admin,
-    update_admin,
-    delete_admin
+    return admins
 
 }
 

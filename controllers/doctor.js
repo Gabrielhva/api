@@ -1,5 +1,3 @@
-
-
 var doctors = []
 function create_doctor(name, crp, classificacao) {
     let id = 0
@@ -25,13 +23,6 @@ function read_doctor(){
     return doctors
 
 }
-
-
-
-
-
-
-
 
 
 function update_doctor (id, name, crp, classificacao){
