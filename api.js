@@ -3,8 +3,11 @@ const app = express()
 const port = 3000
 app.use(express.json())
 const cdoctor = require ('./controllers/doctor')
-const cadmin = require ('./controllers/admin')
+
 const cdisorder = require ('./controllers/disorder')
+
+const radmin = require('./routes/admin')
+app.use('/admin', radmin)
 
 
 app.post("/doctor",(req, res) => {
@@ -55,44 +58,6 @@ app.delete("/doctor/:id", (req, res) =>{
 })
 
 
-app.post("/admin", (req, res) => {
-
-    const {name,email,password} = req.body
-
-    if(!name || !email || !password){
-        return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
-    }
-                //cadmin.
-    const vadmin = cadmin.create_admin(name,email,password)
-    return res.status(400).json({ message: "Sucesso!", admin: vadmin})
-} )
-
-app.get("/admin", (req, res) => {
-    return res.status(200).json({
-        message: 'sucesso',admin: cadmin.create_admin()
-    })
-})
-
-app.put("/admin/:id", (req, res) => {
-    const id = parseInt(req.params.id)
-                    
-    const {name,email,password} = req.body
-
-    let retorno = cadmin.update_admin(id,name,email,password)
-    return res.status(retorno.status).json(retorno.msg)
-
-})
-
-app.delete("/admin/:id", (req, res) => {
-
-    const id = parseInt(req.params.id)
-    if (cadmin.delete_admin(id)) {
-    return res.status(201).json("Você foi de base XD")
-    }
-    else{
-        return res.status(404).json("Não encontrado")
-    }
-})
 
 app.post("/disorder", (req, res)=>{
     const {name, cid} = req.body
