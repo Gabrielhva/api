@@ -2,9 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 app.use(express.json())
-const cdoctor = require ('./controllers/doctor')
-
-const cdisorder = require ('./controllers/disorder')
 
 const radmin = require('./routes/admin')
 app.use('/admin', radmin)
