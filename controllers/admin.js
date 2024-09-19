@@ -1,3 +1,5 @@
+const Admin = require('../models/admin')
+
 var admins = []
 
 function create_admin(name,email,password){
@@ -8,14 +10,7 @@ function create_admin(name,email,password){
         id = admins[admins.length-1].id + 1
     }
 
-    
-
-    const admin = {
-        "id": id,
-        "name": name,
-        "email": email,
-        "password": password
-    }
+    const admin = new Admin(id, name, email, password)
 
     admins.push(admin)
     return admin
