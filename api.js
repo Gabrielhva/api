@@ -3,6 +3,15 @@ const app = express()
 const port = 3000
 app.use(express.json())
 
+const sequelize = require('./config/database')
+
+sequelize.authenticate().then(
+    () => console.log('Banco Conectado')
+).catch(
+    err => console.error("Erro bd:", err)
+)
+
+
 const rdisorder = require('./routes/disorder')
 app.use('/disorder', rdisorder)
 
