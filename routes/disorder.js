@@ -19,7 +19,7 @@ router.post("/create", (req, res)=>{
 })
 
 router.get("/read", (req, res) => {
-    return res.status(200).json({message: 'sucesso',disorder: cdisorder.create_disorder()})
+    return res.status(200).json({message: 'sucesso',disorder: cdisorder.read_disorder()})
 })
 
 router.put("/update/:id", (req, res) => {

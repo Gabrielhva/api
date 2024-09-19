@@ -1,4 +1,5 @@
 
+const Disorder = require('../models/disorder')
 
 var  disorders= []
 
@@ -9,17 +10,13 @@ function create_disorder(name, cid){
         id = disorders[disorders.length-1].id+1
     }
 
-    const disorder ={
-        "id": id,
-        "name": name,
-        "cid":cid
-    }
+    const disorder = new Disorder(id, name, cid)
+
     disorders.push(disorder)
     return disorder
 }
 
 function read_disorder(){
-    
     return disorders
 
 }
