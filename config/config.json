@@ -16,5 +16,14 @@
         "host":"127.0.0.1",
         "dialect":"mysql"
 
+    },
+    "production":{
+
+        "username":"gabriel",
+        "password":"senac123",
+        "database":"teste",
+        "host":"127.0.0.1",
+        "dialect":"mysql"
+
     }
 }
