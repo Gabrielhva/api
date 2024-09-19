@@ -1,3 +1,7 @@
+const Doctor = require('../models/doctor')
+
+
+
 var doctors = []
 function create_doctor(name, crp, classificacao) {
     let id = 0
@@ -6,12 +10,7 @@ function create_doctor(name, crp, classificacao) {
     }
 
 
-    const doctor={
-        "id" : id,
-        "name": name,
-        "crp": crp,
-        "classificacao": classificacao
-    }
+  const doctor = new Doctor(id, name,)
 
     doctors.push(doctor)
     return doctor
