@@ -1,12 +1,23 @@
-class Admin{
+'use strict'
+const {Model, DataTypes} = require('sequelize')
+const sequelize = require('../config/database')
 
-    constructor(pid, pname, pemail, ppassword){
-        this.id = pid
-        this.name = pname
-        this.email = pemail
-        this.password = ppassword
-    }
 
-}
+class Admin extends Model{}
+
+Admin.init({
+    
+    id: {type: DataTypes.STRING,
+        primaryKey: true
+    },
+    name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+
+},{
+    sequelize,
+    modelName: 'Admin'
+})
+
 
 module.exports = Admin

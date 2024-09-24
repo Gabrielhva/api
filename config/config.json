@@ -1,7 +1,7 @@
 {
     "development":{
 
-        "username":"geovanna",
+        "username":"gabriel",
         "password":"senac123",
         "database":"teste",
         "host":"127.0.0.1",
@@ -10,7 +10,7 @@
     },
     "test":{
 
-        "username":"geovanna",
+        "username":"gabriel",
         "password":"senac123",
         "database":"teste",
         "host":"127.0.0.1",
@@ -19,7 +19,7 @@
     },
     "production":{
 
-        "username":"geovanna",
+        "username":"gabriel",
         "password":"senac123",
         "database":"teste",
         "host":"127.0.0.1",
