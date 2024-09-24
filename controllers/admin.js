@@ -1,55 +1,50 @@
 const Admin = require('../models/admin')
 
-var admins = []
-
-function create_admin(name,email,password){
+async function create_admin(id, name,email,password){
     
-    let id = 0
-    if (admins.length > 0){
-        console.log(id)
-        id = admins[admins.length-1].id + 1
-    }
+    const admin = await Admin.create(id, name, email, password)
 
-    const admin = new Admin(id, name, email, password)
-
-    admins.push(admin)
+    
     return admin
 }
 
-function read_admin(){
+async function read_admin(){
     
-    return admins
+    return await admin.findAll()
 
 }
 
 
-function update_admin(id,name,email,password){
+async function update_admin(id,name,email,password){
 
-   let idx = admins.findIndex(admins => admins.id == id)
+   const admin = await Admin.findByPk(id)
 
-    if (idx == -1){
+    if (!Admin){
 
         return {status: 404, msg: "Não encontrado"}
 
     }
 
     
-   admins[idx].name = name
-   admins[idx].email = email
-   admins[idx].password = password
+    if(name) admin.name = name
+    if(email) admin.email = email
+    if(password) admin.password = password
 
-   return {status: 200, msg: admins[idx]}
+    await admin.save()
+
+   return {status: 200, msg: admin}
 }
 
-function delete_admin(id){
+async function delete_admin(id){
 
-    let idx = admins.findIndex(admins => admins.id === id)
-
-    if (idx == -1){
+    const admin = await Admin.findByPk(id)
+    
+    if(!Admin){
         return false
     }
-    
-    admins.splice(idx, 1)
+
+    await admin.destroy()
+
     return true
 }
 
