@@ -4,7 +4,6 @@ async function create_admin(name,email,password){
     
     const admin = await Admin.create({name, email, password})
 
-    
     return admin
 }
 
@@ -14,18 +13,16 @@ async function read_admin(){
 
 }
 
-
 async function update_admin(id,name,email,password){
 
    const admin = await Admin.findByPk(id)
 
-    if (!Admin){
+    if (!admin){
 
         return {status: 404, msg: "Não encontrado"}
 
     }
 
-    
     if(name) admin.name = name
     if(email) admin.email = email
     if(password) admin.password = password
@@ -39,7 +36,7 @@ async function delete_admin(id){
 
     const admin = await Admin.findByPk(id)
     
-    if(!Admin){
+    if(!admin){
         return false
     }
 
