@@ -9,7 +9,7 @@ async function create_admin(name,email,password){
 
 async function read_admin(){
     
-    return await admin.findAll()
+    return await Admin.findAll()
 
 }
 

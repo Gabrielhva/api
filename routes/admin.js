@@ -18,7 +18,7 @@ router.post("/create", (req, res) => {
 
 router.get("/read", (req, res) => {
     return res.status(200).json({
-        message: 'sucesso',admin: cadmin.create_admin()
+        message: 'sucesso',admin: cadmin.read_admin()
     })
 })
 
