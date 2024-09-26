@@ -12,6 +12,7 @@ router.post("/create", (req, res) => {
     }
                 //cadmin.
     const vadmin = cadmin.create_admin(name,email,password)
+    console.log(vadmin)
     return res.status(400).json({ message: "Sucesso!", admin: vadmin})
 } )
 

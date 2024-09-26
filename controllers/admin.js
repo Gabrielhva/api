@@ -1,8 +1,8 @@
 const Admin = require('../models/admin')
 
-async function create_admin(id, name,email,password){
+async function create_admin(name,email,password){
     
-    const admin = await Admin.create(id, name, email, password)
+    const admin = await Admin.create({name, email, password})
 
     
     return admin

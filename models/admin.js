@@ -8,7 +8,8 @@ class Admin extends Model{}
 Admin.init({
     
     id: {type: DataTypes.STRING,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
