@@ -10,10 +10,9 @@ router.post("/create", (req, res) => {
     if(!name || !email || !password){
         return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
     }
-                //cadmin.
-    const vadmin = cadmin.create_admin(name,email,password)
-    console.log(vadmin)
-    return res.status(400).json({ message: "Sucesso!", admin: vadmin})
+    
+
+    return cadmin.create_admin(name,email,password, res)
 } )
 
 router.get("/read", (req, res) => {
