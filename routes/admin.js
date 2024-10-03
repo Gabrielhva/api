@@ -3,44 +3,14 @@ const router = express.Router()
 const cadmin = require ('../controllers/admin')
 
 
-router.post("/create", (req, res) => {
+router.post("/create", cadmin.create_admin )
 
-    const {name,email,password} = req.body
+router.get("/show/:id", cadmin.show_admin)
 
-    if(!name || !email || !password){
-        return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
-    }
-    
+router.get("/read", cadmin.read_admin)
 
-    return cadmin.create_admin(name,email,password, res)
-} )
+router.put("/update/:id", cadmin.update_admin)
 
-router.get("/read", (req, res) => {
-    return res.status(200).json({
-        message: 'sucesso',admin: cadmin.read_admin()
-    })
-})
-
-router.put("/update/:id", (req, res) => {
-    const id = parseInt(req.params.id)
-                    
-    const {name,email,password} = req.body
-
-    let retorno = cadmin.update_admin(id,name,email,password)
-    return res.status(retorno.status).json(retorno.msg)
-
-})
-
-router.delete("/del/:id", (req, res) => {
-
-    const id = parseInt(req.params.id)
-    if (cadmin.delete_admin(id)) {
-    return res.status(201).json("Você foi de base XD")
-    }
-    else{
-        return res.status(404).json("Não encontrado")
-    }
-})
-
+router.delete("/del/:id", cadmin.delete_admin)
 
 module.exports = router

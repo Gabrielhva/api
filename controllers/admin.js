@@ -1,6 +1,13 @@
 const Admin = require('../models/admin')
+const {Op, where} = require('sequelize')
 
-async function create_admin(name,email,password, res){
+async function create_admin(req, res){
+
+    const {name,email,password} = req.body
+
+    if(!name || !email || !password){
+        return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
+    }
 
     if (! validateName(name)){
         return res.status(301).json({ message: "nome inválido, é preciso conter nome e sobrenome! "})
@@ -34,19 +41,58 @@ function validatePassword(password){
     return re.test(password)
 }
 
-async function read_admin(){
-    
-    return await Admin.findAll()
 
+async function show_admin(req, res) {
+    const id = parseInt(req.params.id)
+    const admin = await Admin.findByPk(id)
+
+    if (!admin){
+        return res.status(404).json({
+            message: "Não encontrado"
+        })
+    }
+    
+    return res.status(202).json({
+        message: "Encontrado!",
+        db: admin
+    })
 }
 
-async function update_admin(id,name,email,password){
 
-   const admin = await Admin.findByPk(id)
+async function read_admin(req, res){
+
+    const {name} = req.query
+
+    const condition = {}
+
+
+    if(name){
+        condition.name = {[Op.like]:`%${name}%`}
+    }
+    
+    return res.status(200).json({
+        message: 'sucesso',admin: await Admin.findAll({
+            where: Object.keys(condition).length > 0?
+            condition: undefined
+        })
+            
+    })
+}
+
+async function update_admin(req, res){
+
+    const {name,email,password} = req.body
+
+    const id = parseInt(req.params.id)
+                    
+    const admin = await Admin.findByPk(id)
 
     if (!admin){
 
-        return {status: 404, msg: "Não encontrado"}
+        return res.status(404).json({
+            message: "Não encontrado",
+            db: null
+        }) 
 
     }
 
@@ -56,25 +102,26 @@ async function update_admin(id,name,email,password){
 
     await admin.save()
 
-   return {status: 200, msg: admin}
+    return {status: 203, msg: admin}
 }
 
-async function delete_admin(id){
-
+async function delete_admin(req, res){
+    const id = parseInt(req.params.id)
     const admin = await Admin.findByPk(id)
     
-    if(!admin){
-        return false
+    if (!admin) {
+        return res.status(404).json("Não encontrado")
     }
 
     await admin.destroy()
 
-    return true
+    return res.status(201).json("Você foi de base XD")
+    
 }
 
 module.exports = {
-
     create_admin,
+    show_admin,
     read_admin,
     update_admin,
     delete_admin
