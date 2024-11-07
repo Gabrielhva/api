@@ -22,6 +22,6 @@ const rdoctor = require ('./routes/doctor')
 app.use('/doctor', rdoctor)
 
 app.listen(port, () => {
-    console.log(`Run://10.60.46.47:${port}`);
+    console.log(`Run://10.60.44.50:${port}`);
 })
 

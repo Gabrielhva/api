@@ -1,11 +1,23 @@
-class Doctor{
-    constructor(pid, pname, pcrp){
-        this.id = pid  
-        this.name = pname
-        this.crp = pcrp
-    }
+'use strict'
+const {Model, DataTypes} = require('sequelize')
+const sequelize = require('../config/database')
 
-    /* Colocar outro metodos aqui */
-}
+
+class Doctor extends Model{}
+
+Doctor.init({
+    
+    id: {type: DataTypes.STRING,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: DataTypes.STRING,
+    crp: DataTypes.STRING,
+    classificacao: DataTypes.STRING
+
+},{
+    sequelize,
+    modelName: 'Doctor'
+})
 
 module.exports = Doctor
