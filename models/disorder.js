@@ -1,10 +1,21 @@
-class Disorder{
-    constructor(pid, pname, pcid){
-        this.id = pid 
-        this.name = pname
-        this.cid = pcid
-    }
-    /*cpolocar outro metodso aqui */
-}
+'use strict'
+const {Model, DataTypes} = require('sequelize')
+const sequelize = require('../config/database')
+
+
+class Disorder extends Model{}
+
+Disorder.init({
+    
+    id: {type: DataTypes.STRING,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: DataTypes.STRING,
+    cid: DataTypes.STRING,
+},{
+    sequelize,
+    modelName: 'Disorder'
+})
 
 module.exports = Disorder
