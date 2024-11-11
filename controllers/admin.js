@@ -102,7 +102,10 @@ async function update_admin(req, res){
 
     await admin.save()
 
-    return {status: 203, msg: admin}
+    return  res.status(203).json({
+        message: "atualizado",
+        db: admin
+    }) 
 }
 
 async function delete_admin(req, res){

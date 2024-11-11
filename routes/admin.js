@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const cadmin = require ('../controllers/admin')
 
-
 router.post("/create", cadmin.create_admin )
 
 router.get("/show/:id", cadmin.show_admin)

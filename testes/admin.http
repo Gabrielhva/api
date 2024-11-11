@@ -1,35 +1,35 @@
 ###
-POST http://10.60.46.47:3000/admin/create HTTP/1.1
+POST http://localhost:3000/admin/create HTTP/1.1
 Content-Type: application/json
 
 {
     "name": "Gabriel Henrique",
     "email": "gabriel@gmail.com",
     "password": "ndadaoad6%"
-} 
+}
+
 ###
-GET http://10.60.46.47:3000/admin/show/2 HTTP/1.1
+GET http://localhost:3000/admin/show/1 HTTP/1.1
 Content-Type: application/json
 
 ###
-GET http://10.60.46.47:3000/admin/read HTTP/1.1
+GET http://localhost:3000/admin/read HTTP/1.1
 Content-Type: application/json
 
 ###
-GET http://10.60.46.47:3000/admin/read?name=Gabriel HTTP/1.1
+GET http://localhost:3000/admin/read?name=Gabriel HTTP/1.1
 Content-Type: application/json
 
 ###
-PUT http://10.60.46.47:3000/admin/update/3 HTTP/1.1
+PUT http://localhost:3000/admin/update/1 HTTP/1.1
 Content-Type: application/json
 
 {
     "name": "Paulo",
-    "email": "paulo@gmail.com"
-    
+    "email": "paulo@gmail.com" 
 }
 
 ###
 
-DELETE http://10.60.46.47:3000/admin/del/2 HTTP/1.1
+DELETE http://localhost:3000/admin/del/1 HTTP/1.1
 Content-Type: application/json
