@@ -11,8 +11,9 @@ Disorder.init({
         primaryKey: true,
         autoIncrement: true
     },
-    name: DataTypes.STRING,
+    title: DataTypes.STRING,
     cid: DataTypes.STRING,
+    content: DataTypes.STRING,
 },{
     sequelize,
     modelName: 'Disorder'
