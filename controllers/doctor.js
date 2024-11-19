@@ -24,7 +24,6 @@ async function create_doctor(req,res) {
    })
 }
 
-
 async function show_doctor (req,res) {
    const id = parseInt(req.params.id)
 
@@ -35,7 +34,6 @@ async function show_doctor (req,res) {
            message: "Não Encontrado"
        })
    }
-
 
    return res.status(202).json({
        message:"Encontrei",
@@ -108,7 +106,6 @@ async function update_doctor (req,res){
 
    return res.status(200).json("doctor")
 }
-
 
 async function delete_doctor(req,res){
    const id = parseInt(req.params.id)
