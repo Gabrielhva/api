@@ -5,7 +5,9 @@ Content-Type: application/json
 
 {
    "name": "Joao",
-   "crp": "13333994"
+   "crp": "13333994",
+   "email": "joaopaulo@gmail.com",
+   "desordem": "Depressão"
 }
 
 
@@ -17,7 +19,9 @@ Content-Type: application/json
 {
    "name": "Paulo",
    "crp": "13333994",
-   "classificacao": "Autismo"
+   "email": "paulo@gmail.com",
+   "desordem": "Ansiedade"
+
 }
 
 
@@ -31,7 +35,8 @@ Content-Type: application/json
 {
    "name": "Alessandro",
    "crp": "13333994",
-   "classificacao": "Autismo"
+   "email": "alessandro@gmail.com",
+   "desordem": "Bipolaridade"
 }
 
 

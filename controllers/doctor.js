@@ -5,8 +5,8 @@ const {Op} = require('sequelize')
 
 
 async function create_doctor(req,res) {
-   const {name, crp, classificacao} = req.body
-   if(!name || !crp){
+   const {name, crp, desordem, email} = req.body
+   if(!name || !crp || !desordem || !email){
        return res.status(400).json({ message: 'preencha os campos name e crp são obrigatorios, o campo classificação é opcional' });
    }
 
@@ -15,7 +15,7 @@ async function create_doctor(req,res) {
        return res.status(404).json({ mensage:'o campo name deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create ({name, crp, classificacao})
+   const doctor = await Doctor.create ({name, crp, desordem, email})
 
 
    return res.status(200).json({
@@ -83,7 +83,7 @@ async function update_doctor (req,res){
    const id = parseInt(req.params.id)
 
 
-   const {name, crp, classificacao} = req.body
+   const {name, crp, desordem, email} = req.body
 
 
    const doctor = await Doctor.findByPk(id)
@@ -98,7 +98,8 @@ async function update_doctor (req,res){
 
    if(name) doctor.name = name
    if(crp) doctor.crp = crp
-   if(classificacao) doctor.classificacao = classificacao
+   if(email) doctor.email = email
+   if(desordem) doctor.desordem = desordem
 
 
    await doctor.save()

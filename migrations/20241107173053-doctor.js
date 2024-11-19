@@ -19,10 +19,14 @@ module.exports = {
          allowNull: false,
          type: Sequelize.STRING
        },
-       classificacao:{
+       email:{
          allowNull: true,
          type:Sequelize.STRING
        },
+       desordem:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
        createdAt:{
          allowNull: false,
          type: Sequelize.DATE

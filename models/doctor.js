@@ -10,7 +10,8 @@ class Doctor extends Model{}
 Doctor.init({
    name: DataTypes.STRING,
    crp: DataTypes.STRING,
-   classificacao: DataTypes.STRING
+   desordem: DataTypes.STRING,
+   email: DataTypes.STRING
 },{
    sequelize,
    modelName: 'Doctor',
