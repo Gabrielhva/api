@@ -56,25 +56,26 @@ async function read_disorder(req, res){
  
 async function update_disorder(req, res){
     const id = parseInt(req.params.id)
-   const disorder = await Disorder.findByPk(id)
-   const {title, cid} = req.body
- 
- 
+    const disorder = await Disorder.findByPk(id)
+
     if (!disorder){
- 
         return res.status(404).json({
- 
+            message: "Não encontrado"
         })
- 
     }
- 
+
+    const {title, cid, content} = req.body
+    console.log(title)
     if(title) disorder.title = title
     if(cid) disorder.cid = cid
     if(content) disorder.content = content
  
     await disorder.save()
  
-   return res.status(200).json ("atualizado")
+    return res.status(200).json ({
+        message: "Atualizado",
+        db: disorder  
+    })
 }
  
 async function delete_disorder(req, res){
@@ -82,12 +83,16 @@ async function delete_disorder(req, res){
     const disorder = await Disorder.findByPk(id)
     
     if(!disorder){
-        return res.status(404).json("não encontrado")
+        return res.status(404).json({
+            message: "Não encontrado"
+        })
     }
  
     await disorder.destroy()
  
-    return res.status(201).json("foi de base")
+    return res.status(201).json({
+        message: "foi de base"
+    })
 }
  
 module.exports = {
