@@ -12,6 +12,8 @@ Doctor.init({
    crp: DataTypes.STRING,
    desordem: DataTypes.STRING,
    email: DataTypes.STRING,
+   foto: DataTypes.STRING,
+   email: DataTypes.STRING,
    senha: DataTypes.STRING,
    nascimento: DataTypes.STRING,
    telefone: DataTypes.STRING,

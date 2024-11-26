@@ -13,8 +13,18 @@ Admin.init({
     },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING
-
+    password: DataTypes.STRING,
+    crp: DataTypes.STRING,
+    datanasc: DataTypes.STRING,
+    endereco: DataTypes.STRING,
+    telefone: DataTypes.STRING,
+    desordem: DataTypes.STRING,
+    foto: DataTypes.STRING,
+    cnpj: DataTypes.STRING,
+    nameclinic: DataTypes.STRING,
+    cep: DataTypes.STRING,
+    cidade: DataTypes.STRING,
+    estado: DataTypes.STRING
 },{
     sequelize,
     modelName: 'Admin'

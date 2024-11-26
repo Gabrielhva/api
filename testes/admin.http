@@ -5,7 +5,18 @@ Content-Type: application/json
 {
     "name": "Gabriel Henrique",
     "email": "gabriel@gmail.com",
-    "password": "ndadaoad6%"
+    "password": "ndadaoad6%",
+    "crp": "01/12345",
+    "datanasc": "01/01/2000",
+    "endereco": "Rua abc, 123",
+    "telefone": "(16) 98107-9619",
+    "desordem": "Bipolaridade",
+    "foto": "aaa.jpg",
+    "cnpj": "11.111.111/0001-11",
+    "nameclinic": "Clin",
+    "cep": "11111-111",
+    "cidade": "São Carlos",
+    "estado":"SP"
 }
 
 ###
@@ -26,7 +37,18 @@ Content-Type: application/json
 
 {
     "name": "Paulo",
-    "email": "paulo@gmail.com" 
+    "email": "paulo@gmail.com",
+    "crp": "00/12345",
+    "datanasc": "00/00/0000",
+    "endereco": "Rua abc, 123",
+    "telefone": "(16) 11111-1111",
+    "desordem": "Autismo",
+    "foto": "",
+    "cnpj": "22.222.222/0001-22",
+    "nameclinic": "clinnn",
+    "cep": "22222-222",
+    "cidade": "São Carlos", 
+    "estado":"São Paulo"
 }
 
 ###

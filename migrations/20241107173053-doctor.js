@@ -27,6 +27,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      foto:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       senha:{
         allowNull: false,
         type: Sequelize.STRING

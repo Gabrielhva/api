@@ -5,6 +5,9 @@ const {Op} = require('sequelize')
 
 
 async function create_doctor(req,res) {
+   const {name, crp, desordem, email, foto} = req.body
+   if(!name || !crp || !desordem || !email || !foto){
+       return res.status(400).json({ message: 'preencha os campos name e crp são obrigatorios, o campo classificação é opcional' });
    const {nome, crp, desordem, email, senha, nascimento, telefone} = req.body
    if(!nome || !crp || !desordem || !email || !senha || !nascimento || !telefone){
        return res.status(400).json({ message: 'pre0mpos name e crp são obrigatorios, o campo classificação é opcional' })
@@ -15,7 +18,7 @@ async function create_doctor(req,res) {
        return res.status(404).json({ mensage:'o campo name deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create ({nome, crp, desordem, email, senha, nascimento, telefone})
+   const doctor = await Doctor.create ({name, crp, desordem, email, foto})
 
 
    return res.status(200).json({
@@ -83,7 +86,7 @@ async function update_doctor (req,res){
    const id = parseInt(req.params.id)
 
 
-   const {nome, crp, desordem, email, senha, nascimento, telefone} = req.body
+   const {name, crp, desordem, email, foto} = req.body
 
 
    const doctor = await Doctor.findByPk(id)
@@ -100,9 +103,7 @@ async function update_doctor (req,res){
    if(crp) doctor.crp = crp
    if(email) doctor.email = email
    if(desordem) doctor.desordem = desordem
-   if(senha) doctor.senha = senha
-   if(nascimento) doctor.nascimento = nascimento
-   if(telefone) doctor.telefone = telefone
+   if(foto) doctor.foto = foto
 
 
    await doctor.save()
@@ -133,4 +134,5 @@ module.exports = {
    update_doctor,
    delete_doctor,
    show_doctor
+}
 }

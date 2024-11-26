@@ -25,6 +25,50 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      crp:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      datanasc:{
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      telefone:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      desordem:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      foto:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      cnpj:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      nameclinic:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      cep:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      cidade:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      estado:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      endereco:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       createdAt:{
         allowNull: false,
         type: Sequelize.DATE

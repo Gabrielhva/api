@@ -42,6 +42,8 @@ Content-Type: application/json
    "crp": "13333994",
    "email": "alessandro@gmail.com",
    "desordem": "Bipolaridade",
+   "foto": "http://i.imgur.com/yJv283w.png" 
+   "desordem": "Bipolaridade",
    "senha": "123456",
    "nascimento":"03/03/1996",
    "telefone": "16981350305"
