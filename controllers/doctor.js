@@ -5,17 +5,17 @@ const {Op} = require('sequelize')
 
 
 async function create_doctor(req,res) {
-   const {name, crp, desordem, email} = req.body
-   if(!name || !crp || !desordem || !email){
-       return res.status(400).json({ message: 'preencha os campos name e crp são obrigatorios, o campo classificação é opcional' });
+   const {nome, crp, desordem, email, senha, nascimento, telefone} = req.body
+   if(!nome || !crp || !desordem || !email || !senha || !nascimento || !telefone){
+       return res.status(400).json({ message: 'pre0mpos name e crp são obrigatorios, o campo classificação é opcional' })
    }
 
 
-   if (! alteraTexto(name)){
+   if (! alteraTexto(nome)){
        return res.status(404).json({ mensage:'o campo name deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create ({name, crp, desordem, email})
+   const doctor = await Doctor.create ({nome, crp, desordem, email, senha, nascimento, telefone})
 
 
    return res.status(200).json({
@@ -47,16 +47,16 @@ async function show_doctor (req,res) {
 
 
 async function read_doctor(req,res){
-   const {name} = req.query
+   const {nome} = req.query
 
 
    const condition = {}
 
 
-   if(name){
+   if(nome){
 
 
-       condition.name = {[Op.like]:`%${name}%`}
+       condition.nome = {[Op.like]:`%${nome}%`}
    }
 
 
@@ -83,7 +83,7 @@ async function update_doctor (req,res){
    const id = parseInt(req.params.id)
 
 
-   const {name, crp, desordem, email} = req.body
+   const {nome, crp, desordem, email, senha, nascimento, telefone} = req.body
 
 
    const doctor = await Doctor.findByPk(id)
@@ -96,10 +96,13 @@ async function update_doctor (req,res){
   
 
 
-   if(name) doctor.name = name
+   if(nome) doctor.nome = nome
    if(crp) doctor.crp = crp
    if(email) doctor.email = email
    if(desordem) doctor.desordem = desordem
+   if(senha) doctor.senha = senha
+   if(nascimento) doctor.nascimento = nascimento
+   if(telefone) doctor.telefone = telefone
 
 
    await doctor.save()

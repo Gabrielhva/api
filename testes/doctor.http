@@ -1,13 +1,15 @@
 ### type create, protocolo http, endereço:porta, rota do objeto
-POST  http://localhost:3000/doctor/create HTTP/1.1
+POST http://localhost:3000/doctor/create HTTP/1.1
 Content-Type: application/json
 
-
 {
-   "name": "Joao",
+   "nome": "Joao",
    "crp": "13333994",
    "email": "joaopaulo@gmail.com",
-   "desordem": "Depressão"
+   "desordem": "Depressão" ,
+   "senha": "123456",
+   "nascimento":"03/03,/1996",
+   "telefone": "16981350305"
 }
 
 
@@ -17,10 +19,13 @@ Content-Type: application/json
 
 
 {
-   "name": "Paulo",
+   "nome": "Paulo",
    "crp": "13333994",
    "email": "paulo@gmail.com",
-   "desordem": "Ansiedade"
+   "desordem": "Ansiedade",
+   "senha": "123456",
+   "nascimento":"03/03/1996",
+   "telefone": "16981350305"
 
 }
 
@@ -33,10 +38,14 @@ Content-Type: application/json
 
 
 {
-   "name": "Alessandro",
+   "nome": "Alessandro",
    "crp": "13333994",
    "email": "alessandro@gmail.com",
-   "desordem": "Bipolaridade"
+   "desordem": "Bipolaridade",
+   "senha": "123456",
+   "nascimento":"03/03/1996",
+   "telefone": "16981350305"
+
 }
 
 

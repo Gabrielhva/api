@@ -8,10 +8,14 @@ const sequelize = require('../config/database')
 class Doctor extends Model{}
 
 Doctor.init({
-   name: DataTypes.STRING,
+   nome: DataTypes.STRING,
    crp: DataTypes.STRING,
    desordem: DataTypes.STRING,
-   email: DataTypes.STRING
+   email: DataTypes.STRING,
+   senha: DataTypes.STRING,
+   nascimento: DataTypes.STRING,
+   telefone: DataTypes.STRING,
+
 },{
    sequelize,
    modelName: 'Doctor',

@@ -11,7 +11,7 @@ module.exports = {
        primaryKey: true,
        type: Sequelize.INTEGER
        },
-       name:{
+       nome:{
          allowNull: false,
          type: Sequelize.STRING
        },
@@ -27,6 +27,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      senha:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      nascimento:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      telefone:{
+        allowNull: true,
+        type:Sequelize.STRING
+      },
+
        createdAt:{
          allowNull: false,
          type: Sequelize.DATE
