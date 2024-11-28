@@ -8,8 +8,9 @@ Content-Type: application/json
    "email": "joaopaulo@gmail.com",
    "desordem": "Depressão" ,
    "senha": "123456",
-   "nascimento":"03/03,/1996",
-   "telefone": "16981350305"
+   "nascimento":"03/03/1996",
+   "telefone": "16981350305",
+   "foto": ""
 }
 
 
@@ -25,9 +26,11 @@ Content-Type: application/json
    "desordem": "Ansiedade",
    "senha": "123456",
    "nascimento":"03/03/1996",
-   "telefone": "16981350305"
-
+   "telefone": "16981350305",
+   "foto": ""
 }
+
+
 
 
 

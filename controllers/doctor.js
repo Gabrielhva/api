@@ -1,28 +1,31 @@
-const Doctor = require('../models/doctor')
+const Doctor = require ('../models/doctor')
 const {Op} = require('sequelize')
 
 
 
 
 async function create_doctor(req,res) {
-   const {name, crp, desordem, email, foto} = req.body
-   if(!name || !crp || !desordem || !email || !foto){
-       return res.status(400).json({ message: 'preencha os campos name e crp são obrigatorios, o campo classificação é opcional' });
-   const {nome, crp, desordem, email, senha, nascimento, telefone} = req.body
-   if(!nome || !crp || !desordem || !email || !senha || !nascimento || !telefone){
-       return res.status(400).json({ message: 'pre0mpos name e crp são obrigatorios, o campo classificação é opcional' })
-   }
+    const {nome, crp, desordem, email, senha, nascimento, telefone, foto} = req.body
 
 
+   if(!nome) res.status(400).json({ message: 'nome não existe' })
+   if(!crp) res.status(400).json({ message: 'crp não existe' })
+   if(!desordem) res.status(400).json({ message: ' especialização não existe' })
+   if(!email) res.status(400).json({ message: ' email não existe' })
+   if(!senha) res.status(400).json({ message: ' senha incorreta' })
+   if(!nascimento) res.status(400).json({ message: 'data de nascimento incorreta' })
+   if(!telefone) res.status(400).json({ message: 'bliririm, bliririm, alguem  ligou pra mim' })
+   
+    
    if (! alteraTexto(nome)){
-       return res.status(404).json({ mensage:'o campo name deve ser apenas texto'})
+       return res.status(404).json({ mensage:'o campo nome deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create ({name, crp, desordem, email, foto})
+   const doctor = await Doctor.create({nome, crp, desordem, email, foto, senha, nascimento, telefone})
 
 
    return res.status(200).json({
-       mensage:'sucesso',
+       message:'sucesso',
        doctor_create: doctor
    })
 }
@@ -86,7 +89,7 @@ async function update_doctor (req,res){
    const id = parseInt(req.params.id)
 
 
-   const {name, crp, desordem, email, foto} = req.body
+   const {nome, crp, desordem, email, senha, nascimento, telefone, foto} = req.body
 
 
    const doctor = await Doctor.findByPk(id)
@@ -101,10 +104,12 @@ async function update_doctor (req,res){
 
    if(nome) doctor.nome = nome
    if(crp) doctor.crp = crp
-   if(email) doctor.email = email
    if(desordem) doctor.desordem = desordem
+   if(email) doctor.email = email
+   if(senha) doctor.senha = senha
+   if(nascimento) doctor.nascimento = nascimento
+   if(telefone) doctor.telefone = telefone
    if(foto) doctor.foto = foto
-
 
    await doctor.save()
 
@@ -135,4 +140,4 @@ module.exports = {
    delete_doctor,
    show_doctor
 }
-}
+
