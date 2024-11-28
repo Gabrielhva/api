@@ -10,7 +10,7 @@ Content-Type: application/json
 {
     "title": "autismo",
     "cid": "10",
-    "content": "a"
+    "content": "O quê é autismo?"
 }
 
 ###
@@ -18,14 +18,13 @@ POST http://localhost:3000/disorder/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "autismo",
+    "title": "bipolaridade",
     "cid": "10",
     "content": "a"
 }
 
-
 ###
-PUT http://localhost:3000/disorder/update/1 HTTP/1.1
+POST http://localhost:3000/disorder/create HTTP/1.1
 Content-Type: application/json
 
 {
@@ -35,6 +34,72 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/disorder/del/1 HTTP/1.1
+POST http://localhost:3000/disorder/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "dependência alcolica",
+    "cid": "10",
+    "content": "a"
+}
+
+###
+POST http://localhost:3000/disorder/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "borderline",
+    "cid": "10",
+    "content": "a"
+}
+
+###
+POST http://localhost:3000/disorder/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Dependência de Drogas Ilicitas ",
+    "cid": "10",
+    "content": "a"
+}
+
+###
+POST http://localhost:3000/disorder/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Dependencia de Medicamentos",
+    "cid": "10",
+    "content": "a"
+}
+
+###
+POST http://localhost:3000/disorder/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "depressão",
+    "cid": "10",
+    "content": "a"
+}
+
+
+
+
+
+
+
+###
+PUT http://localhost:3000/disorder/update/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "esquizofrenia",
+    "cid": "10",
+    "content": "a"
+}
+
+###
+DELETE http://localhost:3000/disorder/del/4 HTTP/1.1
 Content-Type: appllication/json
 
