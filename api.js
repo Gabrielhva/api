@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const port = 3000
+const port = 3001
 app.use(express.json())
 app.use(cors())
 
@@ -24,7 +24,11 @@ app.use('/admin', radmin)
 const rdoctor = require ('./routes/doctor')
 app.use('/doctor', rdoctor)
 
+if (require.main === module) {
 app.listen(port, () => {
     console.log(`Run://10.60.44.50:${port}`);
-})
+});
 
+}
+
+module.exports = app;
