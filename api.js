@@ -27,8 +27,12 @@ app.use('/doctor', rdoctor)
 if (require.main === module) {
 app.listen(port, () => {
     console.log(`Run://10.60.44.50:${port}`);
+<<<<<<< HEAD
 });
 
 }
 
 module.exports = app;
+=======
+})
+>>>>>>> 5b356b1 (.)
