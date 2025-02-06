@@ -13,9 +13,9 @@ describe('Testando a API', () => {
 
 describe('Testando a API', () => {
     it('Deve retornar um JSON com status 200', async () => {
-        const response = await request(app).post('/doctor/create');
+        const response = await request(app).post('/admin/create');
         expect(response.status).toBe(200);
-        expect(response.body).toHaveProperty('doctor');
+        expect(response.body).toHaveProperty('admin');
     });
 });
 
