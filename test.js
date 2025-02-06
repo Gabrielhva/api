@@ -11,4 +11,12 @@ describe('Testando a API', () => {
     });
 });
 
+describe('Testando a API', () => {
+    it('Deve retornar um JSON com status 200', async () => {
+        const response = await request(app).post('/doctor/create');
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('doctor');
+    });
+});
+
 //npm test
