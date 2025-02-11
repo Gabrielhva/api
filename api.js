@@ -26,9 +26,15 @@ const rdoctor = require ('./routes/doctor')
 app.use('/doctor', rdoctor)
 
 if (require.main === module) {
+<<<<<<< HEAD
 app.listen(port, () => {
     console.log(`Run://10.60.44.46:${port}`);
 });
+=======
+    app.listen(port, () => {
+        console.log(`Run://10.60.44.50:${port}`);
+    });
+>>>>>>> 0b8091a409009916ab6b49f779465ad602a521de
 
 }
 
