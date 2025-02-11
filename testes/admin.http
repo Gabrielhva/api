@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/admin/show/1 HTTP/1.1
+GET http://localhost:3001/admin/show/20 HTTP/1.1
 Content-Type: application/json
 
 ###
@@ -32,7 +32,7 @@ GET http://localhost:3000/admin/read?name=Gabriel HTTP/1.1
 Content-Type: application/json
 
 ###
-PUT http://localhost:3000/admin/update/1 HTTP/1.1
+PUT http://localhost:3001/admin/update/20 HTTP/1.1
 Content-Type: application/json
 
 {
