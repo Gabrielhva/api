@@ -5,6 +5,7 @@ const port = 3001
 app.use(express.json())
 app.use(cors())
 
+//falta um cors em algum lugar
 
 const sequelize = require('./config/database')
 
@@ -26,7 +27,7 @@ app.use('/doctor', rdoctor)
 
 if (require.main === module) {
 app.listen(port, () => {
-    console.log(`Run://10.60.44.50:${port}`);
+    console.log(`Run://10.60.44.46:${port}`);
 });
 
 }

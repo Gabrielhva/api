@@ -8,13 +8,13 @@ async function create_doctor(req,res) {
     const {nome, crp, desordem, email, senha, nascimento, telefone, foto} = req.body
 
 
-   if(!nome) res.status(400).json({ message: 'nome não existe' })
-   if(!crp) res.status(400).json({ message: 'crp não existe' })
-   if(!desordem) res.status(400).json({ message: ' especialização não existe' })
-   if(!email) res.status(400).json({ message: ' email não existe' })
-   if(!senha) res.status(400).json({ message: ' senha incorreta' })
-   if(!nascimento) res.status(400).json({ message: 'data de nascimento incorreta' })
-   if(!telefone) res.status(400).json({ message: 'bliririm, bliririm, alguem  ligou pra mim' })
+   if(!nome) return res.status(400).json({ message: 'nome não existe' })
+   if(!crp) return res.status(400).json({ message: 'crp não existe' })
+   if(!desordem) return res.status(400).json({ message: ' especialização não existe' })
+   if(!email) return res.status(400).json({ message: ' email não existe' })
+   if(!senha) return res.status(400).json({ message: ' senha incorreta' })
+   if(!nascimento) return res.status(400).json({ message: 'data de nascimento incorreta' })
+   if(!telefone) return res.status(400).json({ message: 'bliririm, bliririm, alguem  ligou pra mim' })
    
     
    if (! alteraTexto(nome)){
