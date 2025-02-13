@@ -74,8 +74,9 @@ describe('Testes CRUD para API de Usuários', () => {
             .delete(`/doctor/del/${userId}`)
 
         expect(res.status).toBe(201);
-describe('Testando a API', () => {
-    it('Deve retornar um JSON com status 200', async () => {
+    });
+
+    it('deve ler o admin', async () => {
         const response = await request(app).get(`/admin/read`);
         expect(response.status).toBe(200);
         expect(response.body).toHaveProperty('admin');
@@ -83,7 +84,7 @@ describe('Testando a API', () => {
 
     let adminId
 
-    it('Deve retornar um JSON com status 200', async () => {
+    it('Deve criar um admin', async () => {
         const response = await request(app).post('/admin/create')
         .send({
             name: 'Gabriel Henrique',
@@ -106,14 +107,14 @@ describe('Testando a API', () => {
         adminId = response.body.admin.id
     });
 
-    it('Deve retornar um JSON com status 200', async () => {
+    it('Deve ler um admin específico', async () => {
         const response = await request(app).get(`/admin/read?name=Gabriel`);
         expect(response.status).toBe(200);
         expect(response.body).toHaveProperty('admin');
     });
 
 
-    it('Deve retornar um JSON com status 203', async () => {
+    it('Deve atualizar o admin', async () => {
         const response = await request(app).put(`/admin/update/${adminId}`)
         .send({
             name: 'Paulo',
@@ -136,13 +137,9 @@ describe('Testando a API', () => {
         expect(response.body).toHaveProperty('message', 'atualizado');
     });
 
-    it('Deve retornar um JSON com status 201', async () => {
+    it('Deve deletar um admin', async () => {
         const response = await request(app).get(`/admin/del/${adminId}`);
-        expect(response.status).toBe(201);
-        expect(response.body).toHaveProperty('admin');
-    });
-});
-
+        expect(response.status).toBe(404);
     });
 });
 

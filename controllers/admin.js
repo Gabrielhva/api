@@ -219,7 +219,7 @@ async function update_admin(req, res){
 
     return  res.status(203).json({
         message: "atualizado",
-        db: admin
+        admin: admin
     }) 
 }
 
