@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express()
 const port = 3001
 app.use(express.json())
-app.use(cors())
+app.use(cors('origin','*'))
 
 //falta um cors em algum lugar
 

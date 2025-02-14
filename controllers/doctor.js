@@ -5,10 +5,11 @@ const {Op} = require('sequelize')
 
 
 async function create_doctor(req,res) {
-    const {nome, crp, desordem, email, senha, nascimento, telefone, foto} = req.body
+    const {nome, crp, desordem, email, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
+        estado,cidade, cep} = req.body
 
 
-   if(!nome) return res.status(400).json({ message: 'nome não existe' })
+   if(!nome) return res.status(400).json({ message: 'nome não existe' }) 
    if(!crp) return res.status(400).json({ message: 'crp não existe' })
    if(!desordem) return res.status(400).json({ message: ' especialização não existe' })
    if(!email) return res.status(400).json({ message: ' email não existe' })
@@ -21,7 +22,8 @@ async function create_doctor(req,res) {
        return res.status(404).json({ mensage:'o campo nome deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create({nome, crp, desordem, email, foto, senha, nascimento, telefone})
+   const doctor = await Doctor.create({nome, crp, desordem, email, foto, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
+    estado,cidade, cep})
 
 
    return res.status(200).json({
