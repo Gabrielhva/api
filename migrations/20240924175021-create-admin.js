@@ -49,7 +49,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      nameclinic:{
+      nomeClinic:{
         allowNull: false,
         type: Sequelize.STRING
       },

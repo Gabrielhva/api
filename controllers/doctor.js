@@ -6,18 +6,24 @@ const {Op} = require('sequelize')
 
 async function create_doctor(req,res) {
     const {nome, crp, desordem, email, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
-        estado,cidade, cep} = req.body
+        estado,cidade, cep, type} = req.body
+
+    console.log(type)
 
 
    if(!nome) return res.status(400).json({ message: 'nome não existe' }) 
-   if(!crp) return res.status(400).json({ message: 'crp não existe' })
-   if(!desordem) return res.status(400).json({ message: ' especialização não existe' })
+   if(type == "doctor" && !crp) return res.status(400).json({ message: 'crp não existe' })
+   if(type == "doctor" && !desordem) return res.status(400).json({ message: ' especialização não existe' })
    if(!email) return res.status(400).json({ message: ' email não existe' })
    if(!senha) return res.status(400).json({ message: ' senha incorreta' })
    if(!nascimento) return res.status(400).json({ message: 'data de nascimento incorreta' })
-   if(!telefone) return res.status(400).json({ message: 'bliririm, bliririm, alguem  ligou pra mim' })
+   if(type == "doctor" && !telefone) return res.status(400).json({ message: 'bliririm, bliririm, alguem  ligou pra mim' })
    
-    
+    if (type == "doctor" && crp.length>7) {
+        return res.status(301).json({ message: "O CRP precisa conter no máximo 7 dígitos!"})
+    }  
+
+
    if (! alteraTexto(nome)){
        return res.status(404).json({ mensage:'o campo nome deve ser apenas texto'})
    }

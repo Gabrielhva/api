@@ -4,7 +4,7 @@ const {Op, where} = require('sequelize')
 async function create_admin(req, res){
 
     const {name,email,password, datanasc, crp, endereco, 
-            telefone, desordem, foto, cnpj, nameclinic, cep, cidade, estado} = req.body
+            telefone, desordem, foto, cnpj, nomeClinic, cep, cidade, estado} = req.body
 
     if(!name || !email || !password ){
         return res.status(400).json({ message: "Você não preencheu algumas das opções: nome, email e senha!"})
@@ -22,9 +22,7 @@ async function create_admin(req, res){
         return res.status(301).json({ message: "A senha precisa conter um caracter especial(ex:$%#@!&) e um número!"})
     } 
 
-    if (! validateCrp(crp)) {
-        return res.status(301).json({ message: "O CRP precisa conter no máximo 7 dígitos!"})
-    } 
+  
 
     if (! validateDatanasc(datanasc)) {
         return res.status(301).json({ message: "A data de nascimento precisa conter dia/mês/ano!"})
@@ -50,7 +48,7 @@ async function create_admin(req, res){
         return res.status(301).json({ message: "O CNPJ está incorreto ou não existe!"})
     } 
 
-    if (! validateNameclinic(nameclinic)) {
+    if (! validateNameclinic(nomeClinic)) {
         return res.status(301).json({ message: "O nome da clínica contém caracteres inválidos!"})
     } 
 
@@ -68,7 +66,7 @@ async function create_admin(req, res){
 
 
     const admin = await Admin.create({name, email, password, crp, datanasc, 
-        endereco, telefone, desordem, foto, cnpj, nameclinic, cep, cidade, estado})
+        endereco, telefone, desordem, foto, cnpj, nomeClinic, cep, cidade, estado})
 
     return res.status(200).json({ message: "Sucesso!", admin: admin})
 }
@@ -88,10 +86,6 @@ function validatePassword(password){
     return re.test(password)
 }
 
-function validateCrp(crp){
-    var re = /^\d+\/\d{5}$/
-    return re.test(crp)
-}
 
 function validateDatanasc(datanasc){
     var re = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
@@ -124,9 +118,9 @@ function validateCnpj(cnpj){
     return re.test(cnpj)
 }
 
-function validateNameclinic(nameclinic){
+function validateNameclinic(nomeClinic){
     var re = /^[A-Za-zÁ-Úá-úçÇ0-9\s&.,-]+$/
-    return re.test(nameclinic)
+    return re.test(nomeClinic)
 }
 
 function validateCep(cep){
@@ -185,7 +179,7 @@ async function read_admin(req, res){
 async function update_admin(req, res){
 
     const {name,email,password, datanasc, crp, endereco, 
-        telefone, desordem, foto, cnpj, nameclinic, cep, cidade, estado} = req.body
+        telefone, desordem, foto, cnpj, nomeClinic, cep, cidade, estado} = req.body
 
     const id = parseInt(req.params.id)
                     
@@ -210,7 +204,7 @@ async function update_admin(req, res){
     if(desordem) admin.desordem = desordem
     if(foto) admin.foto = foto
     if(cnpj) admin.cnpj = cnpj
-    if(nameclinic) admin.nameclinic = nameclinic
+    if(nomeClinic) admin.nomeClinic = nomeClinic
     if(cep) admin.cep = cep
     if(cidade) admin.cidade = cidade
     if(estado) admin.estado = estado

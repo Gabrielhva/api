@@ -21,7 +21,7 @@ Admin.init({
     desordem: DataTypes.STRING,
     foto: DataTypes.STRING,
     cnpj: DataTypes.STRING,
-    nameclinic: DataTypes.STRING,
+    nomeClinic: DataTypes.STRING,
     cep: DataTypes.STRING,
     cidade: DataTypes.STRING,
     estado: DataTypes.STRING
