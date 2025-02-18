@@ -22,7 +22,7 @@ async function create_doctor(req,res) {
 
 
    if (! alteraTexto(nome)){
-       return res.status(404).json({ mensage:'o campo nome deve ser apenas texto'})
+       return res.status(400).json({ mensage:'o campo nome deve ser apenas texto'})
    }
       
    const doctor = await Doctor.create({nome, type, crp, desordem, email, foto, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
@@ -82,10 +82,8 @@ async function read_doctor(req,res){
 
 
 function alteraTexto(inputtxt){
-  var letters = /^[A-Za-z]+$/;
-  return inputtxt.match(letters)
-
-
+  var letters = /^[A-Za-z\s]+$/;
+  return inputtxt.match(letters);
 }
   
   
