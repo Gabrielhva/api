@@ -20,6 +20,7 @@ Doctor.init({
    senha: DataTypes.STRING,
    nascimento: DataTypes.STRING,
    telefone: DataTypes.STRING,
+   type: DataTypes.STRING
 
 },{
    sequelize,

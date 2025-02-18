@@ -1,5 +1,7 @@
 'use strict';
 
+const sequelize = require('../config/database');
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -40,6 +42,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       telefone:{
+        allowNull: true,
+        type:Sequelize.STRING
+      },
+      type:{
         allowNull: true,
         type:Sequelize.STRING
       },

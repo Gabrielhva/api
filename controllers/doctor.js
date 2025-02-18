@@ -8,9 +8,6 @@ async function create_doctor(req,res) {
     const {nome, crp, desordem, email, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
         estado,cidade, cep, type} = req.body
 
-    console.log(type)
-
-
    if(!nome) return res.status(400).json({ message: 'nome não existe' }) 
    if(type == "doctor" && !crp) return res.status(400).json({ message: 'crp não existe' })
    if(type == "doctor" && !desordem) return res.status(400).json({ message: ' especialização não existe' })
@@ -28,7 +25,7 @@ async function create_doctor(req,res) {
        return res.status(404).json({ mensage:'o campo nome deve ser apenas texto'})
    }
       
-   const doctor = await Doctor.create({nome, crp, desordem, email, foto, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
+   const doctor = await Doctor.create({nome, type, crp, desordem, email, foto, senha, nascimento, telefone, foto, nomeClinica, cnpj,  endereço, 
     estado,cidade, cep})
 
 
